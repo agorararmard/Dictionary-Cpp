@@ -7,7 +7,7 @@ using namespace std;
 
 int main(){
 
-    dictionary d;
+    dictionary<string, int> d;
     d.insert("amr", 0);
     d.insert("ahmed", 6);
     d.insert("habiba", 5);
@@ -67,13 +67,13 @@ int main(){
     cout << d.getIndex("karim") << endl;
 
     cout << "####\n";
-    const dictionary b(d);
+    const dictionary<string,int> b(d);
     if(d == b)
         cout << "sucess\n";
     else
         cout << "fail\n";
     cout << "####\n";
-    dictionary c;
+    dictionary<string, int> c;
     c = b;
 
     d.clear();
@@ -101,5 +101,21 @@ int main(){
 
     }
     cout << "####\n";
+    c.getat("salah");
+    for (int i =0; i < c.size();i++){
+        cout << c.at(i)<< endl;
+    }
+    cout << "####\n";
+
+    try{
+        b.getat("Cabo");
+    }catch(std::runtime_error& e){
+        cout << e.what() << endl;
+    }
+    cout << "####\n";
+    for (int i =0; i < b.size();i++){
+        cout << b.at(i)<< endl;
+    }
     return 0;
+
 }
